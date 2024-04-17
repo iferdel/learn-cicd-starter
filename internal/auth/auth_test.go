@@ -1,23 +1,23 @@
 package auth
 
 import (
+	"errors"
 	"net/http"
 	"testing"
-    "errors"
 )
 
 func TestGetAPIKey(t *testing.T) {
 	tests := []struct {
-		name       string
-		headers    http.Header
-		wantKey    string
-		wantErr    error
+		name    string
+		headers http.Header
+		wantKey string
+		wantErr error
 	}{
 		{
-			name:       "no authorization header",
-			headers:    make(http.Header),
-			wantKey:    "",
-			wantErr:    ErrNoAuthHeaderIncluded,
+			name:    "no authorization header",
+			headers: make(http.Header),
+			wantKey: "",
+			wantErr: ErrNoAuthHeaderIncluded,
 		},
 		{
 			name: "incorrect authorization scheme",
@@ -57,4 +57,3 @@ func TestGetAPIKey(t *testing.T) {
 		})
 	}
 }
-
