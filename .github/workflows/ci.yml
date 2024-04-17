@@ -25,7 +25,7 @@ jobs:
         run: go test -cover ./...
 
   style:
-    name: Styling
+    name: Style
     runs-on: ubuntu-latest
 
     steps:
@@ -40,6 +40,6 @@ jobs:
       - name: get Go version
         run: go version
 
-      - name: styling
+      - name: fmt styling
         run: test -z $(go fmt ./...)
 
